@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         System.out.println("\033[1;92m(~ APP STARTED ~)\033[0m");
 
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://database_container/mydb?user=gerard&password=gerard123");
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://database_container/thingsdb?user=gerard&password=gerard123");
 
         Scanner scanner = new Scanner(System.in);
         while(true){
