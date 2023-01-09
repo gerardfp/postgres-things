@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app_container:
+    image: gradle:jdk11
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: gradle run -q --console=plain
+    stdin_open: true
+    tty: true
+    depends_on:
+      - database_container
+  database_container:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: gerard
+      POSTGRES_PASSWORD: gerard123
+      POSTGRES_DB: thingsdb
+    volumes:
+      - ./app/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
